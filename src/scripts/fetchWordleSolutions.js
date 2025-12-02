@@ -9,11 +9,6 @@ let wordleSolutions = {
   solutions: [],
 };
 
-console.log('process.cwd():', process.cwd());
-console.log('__dirname:', __dirname);
-console.log(dataPath);
-console.log(fs.existsSync(dataPath));
-
 if (fs.existsSync(dataPath)) {
   try {
     wordleSolutions = require(dataPath);
@@ -26,8 +21,6 @@ const MAX_DATE = format(addDays(new Date(), -1), 'yyyy-MM-dd');
 const MIN_DATE = '2021-06-19';
 
 const API_URL = 'https://www.nytimes.com/svc/wordle/v2';
-
-console.log(wordleSolutions);
 
 async function fetchWordleSolutions() {
   const solutions = wordleSolutions.solutions || [];
