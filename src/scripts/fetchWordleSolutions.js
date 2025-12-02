@@ -1,20 +1,24 @@
 const axios = require('axios');
 const { addDays, format, parseISO, formatISO } = require('date-fns');
 const fs = require('fs');
+const path = require('path');
 
-// const wordleSolutions = require('../data/wordle-solutions.json');
-
-const path = '../data/wordle-solutions.json';
+const dataPath = path.resolve(__dirname, '../data/wordle-solutions.json');
 
 let wordleSolutions = {
   solutions: [],
 };
 
-if (fs.existsSync(path)) {
+console.log('process.cwd():', process.cwd());
+console.log('__dirname:', __dirname);
+console.log(dataPath);
+console.log(fs.existsSync(dataPath));
+
+if (fs.existsSync(dataPath)) {
   try {
-    wordleSolutions = require(path);
+    wordleSolutions = require(dataPath);
   } catch (err) {
-    console.error(`Error loading ${path}:`, err);
+    console.error(`Error loading ${dataPath}:`, err);
   }
 }
 
@@ -22,6 +26,8 @@ const MAX_DATE = format(addDays(new Date(), -1), 'yyyy-MM-dd');
 const MIN_DATE = '2021-06-19';
 
 const API_URL = 'https://www.nytimes.com/svc/wordle/v2';
+
+console.log(wordleSolutions);
 
 async function fetchWordleSolutions() {
   const solutions = wordleSolutions.solutions || [];
