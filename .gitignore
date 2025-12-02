@@ -12,7 +12,8 @@
 /.next/
 /out/
 
-# production
+# data + production
+**/wordle-solutions.json
 /build
 
 # misc

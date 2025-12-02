@@ -7,7 +7,7 @@ import Page from '../components/Page';
 import Tile, { TileState } from '../components/Tile';
 import TileInput from '../components/TileInput';
 
-import solutions from '../data/wordle-solutions.json';
+import { solutions } from '../data/wordle-solutions.json';
 import list from '../data/wordle.json';
 import { useMultiInput, UseMultiInputOptions } from '../hooks';
 import { wordleSolver } from '../utils';

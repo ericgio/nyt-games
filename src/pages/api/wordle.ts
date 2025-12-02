@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import solutions from '../../data/wordle-solutions.json';
+import { solutions } from '../../data/wordle-solutions.json';
 
 const API_URL = 'https://www.nytimes.com/svc/wordle/v2';
 

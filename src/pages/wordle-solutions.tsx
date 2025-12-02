@@ -5,7 +5,9 @@ import Input from '../components/Input';
 import Page from '../components/Page';
 import Tile from '../components/Tile';
 
-import solutions from '../data/wordle-solutions.json';
+import { formatDistanceToNow } from 'date-fns';
+
+import { solutions, updated } from '../data/wordle-solutions.json';
 
 const TITLE = 'Wordle Solutions';
 
@@ -42,6 +44,12 @@ function WordleHelper() {
         <$Solution>
           <p>
             {results.length} {results.length === 1 ? 'solution' : 'solutions'}
+            <br />
+            <small>
+              <em>
+                Last updated: {formatDistanceToNow(new Date(updated))} ago
+              </em>
+            </small>
           </p>
           {results.map((s) => (
             <$Row key={s}>
