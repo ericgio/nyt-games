@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build-data": "node ./src/scripts/build-data.js && yarn prettier --write './src/data/*.json'"
+    "build-data": "node ./src/scripts/build-data.js && npx prettier --write './src/data/*.json'"
   },
   "dependencies": {
     "@types/node": "18.15.11",
