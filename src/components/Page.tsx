@@ -83,7 +83,7 @@ function Page(props: PageProps) {
       <$Page>
         <$Header>
           <$Logo>
-            <Link href="/">NYTWordGames</Link>
+            <Link href="/">WordGames</Link>
           </$Logo>
         </$Header>
         {props.children}
