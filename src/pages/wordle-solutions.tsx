@@ -28,9 +28,10 @@ function WordleHelper() {
   const [filter, setFilter] = React.useState('');
 
   const results = solutions
-    .map((s) => s.solution)
-    .filter((s) => s.toLowerCase().includes(filter.toLowerCase()))
-    .sort();
+    .filter(({ solution }) =>
+      solution.toLowerCase().includes(filter.toLowerCase()),
+    )
+    .sort((a, b) => (a.solution > b.solution ? 1 : -1));
 
   return (
     <Page faviconSrc="/wordle-favicon.ico" title={TITLE}>
@@ -51,10 +52,10 @@ function WordleHelper() {
               </em>
             </small>
           </p>
-          {results.map((s) => (
-            <$Row key={s}>
-              {s.split('').map((char, idx) => (
-                <Tile key={`${s}-${idx}`} state="correct">
+          {results.map(({ print_date, solution }) => (
+            <$Row key={print_date}>
+              {solution.split('').map((char, idx) => (
+                <Tile key={`${solution}-${idx}`} state="correct">
                   {char}
                 </Tile>
               ))}
